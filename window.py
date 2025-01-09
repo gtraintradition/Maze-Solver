@@ -12,6 +12,9 @@ class Window:
 
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
 
+        self.width = width
+        self.height = height
+        self.center = Point(width /2, height/2)
 
     def redraw(self):
         self.__root.update_idletasks()
@@ -30,9 +33,6 @@ class Window:
 
     def draw_line(self, line, fill_color="black"):
         line.draw(self.__canvas, fill_color)
-
-
-
 
 
 class Point():
