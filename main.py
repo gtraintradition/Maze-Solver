@@ -1,24 +1,26 @@
 from window import Window, Line, Point
+from cell import Cell
+
 
 
 
 def main():
+    
     win = Window(800, 600)
 
-    point_1 = Point(100, 100)
-    point_12 = Point(150, 200)
-    point_2 = Point(400, 300)
-    point_21 = Point(550, 600)
-    point_3 = Point(400, 400)
-    point_31 = Point(800, 400)
+    cell_1 = Cell(win, 20, 100, 100, 20, left=False)
+    cell_2 = Cell(win, 20, 200, 100, 120, right=False)
+    cell_3 = Cell(win, 20, 300, 100, 220, top=False)
+    cell_4 = Cell(win, 20, 400, 100, 320, bottom=False)
+    cell_5 = Cell(win, 20, 500, 100, 420, left=False, right=False, top=False)
 
-    line_1 = Line(point_1, point_12)
-    line_2 = Line(point_2, point_21)
-    line_3 = Line(point_3, point_31)
 
-    win.draw_line(line_1, "red")
-    win.draw_line(line_2, "blue")
-    win.draw_line(line_3, "green")
+    cell_1.draw("red")
+    cell_2.draw("blue")
+    cell_3.draw("green")
+    cell_4.draw("purple")
+    cell_5.draw("yellow")
+
 
     win.wait_for_close()
 
