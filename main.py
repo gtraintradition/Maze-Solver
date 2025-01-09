@@ -15,10 +15,14 @@ def main():
     cell_5 = Cell(win, 20, 500, 100, 420, left=False, right=False, top=False)
 
 
-    cell_1.draw("red")
+    cell_1.draw("pink")
+    cell_1.draw_move(cell_2)
     cell_2.draw("blue")
+    cell_2.draw_move(cell_3, True)
     cell_3.draw("green")
+    cell_3.draw_move(cell_4)
     cell_4.draw("purple")
+    cell_4.draw_move(cell_5, True)
     cell_5.draw("yellow")
 
 
