@@ -32,6 +32,16 @@ class Tests(unittest.TestCase):
         self.assertEqual(maze_1.cells[-1][-1].has_right_wall, False)     
 
 
+    def test_reset_cells_visited(self):
+        win = Window(500, 500)
+        num_cols = 5
+        num_rows = 5
+        maze_1 = Maze(win, num_rows, num_cols)
+        for i in range(len(maze_1.cells)):
+            for j in range(len(maze_1.cells[i])):
+                self.assertFalse(maze_1.cells[i][j].visited)                     
+
+
 
 
 if __name__ == "__main__":

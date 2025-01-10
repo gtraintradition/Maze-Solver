@@ -1,7 +1,6 @@
 import time, random
 
 from cell import Cell
-from window import Point, Line
 
 
 
@@ -56,6 +55,7 @@ class Maze():
         self._create_cells()
         self._break_entrance_and_exit()
         self._break_walls_r(0, 0)
+        self._reset_cells_visited()
 
 
     def _create_cells(self):
@@ -148,4 +148,10 @@ class Maze():
             self._break_walls_r(next_cell[0], next_cell[1])
 
     
+    def _reset_cells_visited(self):
+        for i in range(self.__num_cols):
+            for j in range(self.__num_rows):        
+                self.cells[i][j].visited = False
+
+
 
