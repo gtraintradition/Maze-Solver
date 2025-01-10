@@ -49,7 +49,7 @@ class Maze():
         print(self.maze_y2)
         print(f"cell size = {self.__cell_size}")
 
-        # Debug
+        # For debug initially but chose to keep it
         maze_borders = Cell(self.__win)
         maze_borders.draw(self.maze_x1, self.maze_y1, self.maze_x2, self.maze_y2, "pink")
 
@@ -63,11 +63,14 @@ class Maze():
             cells_to_add = []
             for j in range(self.__num_rows):
                 cells_to_add.append(Cell(self.__win))
-                self._draw_cell(cells_to_add[-1], i, j)
             self.cells.append(cells_to_add)
 
+        for i in range(self.__num_cols):
+            for j in range(self.__num_rows):        
+                self._draw_cell(i, j)
 
-    def _draw_cell(self, cell, i, j):
+
+    def _draw_cell(self, i, j):
         if self.__win == None:
             print(f"cant draw cell[{i}][{j}] because \"self._win\" == None")
             return
@@ -77,7 +80,7 @@ class Maze():
         y1 = j * self.__cell_size + self.maze_y1
         y2 = y1 + self.__cell_size 
 
-        cell.draw(x1, y1, x2, y2)
+        self.cells[i][j].draw(x1, y1, x2, y2)
 
         self._animate()
 
@@ -92,9 +95,9 @@ class Maze():
 
     def _break_entrance_and_exit(self):
         self.cells[0][0].has_left_wall = False
-        self._draw_cell(self.cells[0][0], 0, 0)
+        self._draw_cell(0, 0)
         self.cells[-1][-1].has_right_wall = False
-        self._draw_cell(self.cells[-1][-1], self.__num_cols - 1, self.__num_rows - 1)
+        self._draw_cell(self.__num_cols - 1, self.__num_rows - 1)
 
 
     def _break_walls_r(self, i, j):
@@ -120,7 +123,7 @@ class Maze():
                 can_visit.append((i, j + 1))
 
             if len(can_visit) == 0:
-                self._draw_cell(self.cells[i][j], i, j)
+                self._draw_cell(i, j)
                 return
 
             next_cell = random.choice(can_visit)
@@ -144,4 +147,5 @@ class Maze():
 
             self._break_walls_r(next_cell[0], next_cell[1])
 
-        
+    
+
