@@ -4,20 +4,20 @@ from window import Line, Point
 class Cell:
 
     def __init__(self, window, left=True, right=True, top=True, bottom=True):
-        
+
+        self._win = window       
         self.has_left_wall = left
         self.has_right_wall = right
         self.has_top_wall = top
         self.has_bottom_wall = bottom
+        self.visited = False
 
-        # x1y1 (top-left) to x2y2 (bottom-right)
+        # x1y1 is top-left, x2y2 is bottom-right
         self._x1 = 0
         self._y1 = 0
         self._x2 = 0
         self._y2 = 0
         self.__center = None
-
-        self._win = window
 
 
     def draw(self, x1, y1, x2, y2, fill_color="black"):
@@ -71,4 +71,5 @@ class Cell:
             fill_color = "red"
 
         self._win.draw_line(line, fill_color)
+
 
