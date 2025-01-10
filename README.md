@@ -6,7 +6,7 @@ ideas to extend the project:
 - customizable start and exit
 - adjustable sleep_time for animation
 - different animation times for new paths and backtracking
-- try some other solving algorithms (BFA, A*, ...)
+- try some other solving algorithms (BFS, A*, ...)
 - time and see which algorithm is fasster
 - Add configurations in the app itself using Tkinter buttons and inputs to allow users to change maze size, speed, etc
 - improve support of large mazes
